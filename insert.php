@@ -1,27 +1,16 @@
 <?php
-include_once("configuration.php");
-if(isset($_POST['fname']) && isset($_POST['sname']) && isset($_POST['email']) && isset($_POST['mobile']))
-{
-	  $fname= $_POST['fname'];
-	  $sname= $_POST['sname'];
-	  $email= $_POST['email'];
-	  $mob= $_POST['mobile'];
-	  
-	  $sql = "INSERT INTO tbl_registration (first_name, last_name, email_id,phone)
-VALUES ('".$fname."', '".$sname."', '".$email."','".$mob."')";
-
-
-if ($conn->query($sql)) {
-    echo "1";
-} else {
-    echo "0"; 
-}
-	  
-}
-else
-{
-	 echo "3"; 
-}
-
-
+$servername = "testdb";
+$username = "root";
+$password = "amveryhappy";
+$db_name = "testdb";
+// Create connection
+$conn = new mysqli($servername, $username, $password,$db_name);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+//echo "Connected successfully";
+// links
+$home_url = "index.php";
+$insert_url = "insert.php";
 ?>
